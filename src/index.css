@@ -1,0 +1,21 @@
+img {
+  float: left;
+  width: 350px;
+}
+
+.article {
+  margin-left: 10%;
+  margin-right: 5%;
+  border-bottom: 1px solid black;
+  display: flex;
+}
+
+.info-block {
+  float: right;
+  margin-left: 30px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
