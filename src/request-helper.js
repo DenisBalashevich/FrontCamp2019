@@ -5,6 +5,6 @@ export async function get(url) {
         let json = await response.json();
         return json;
     } else {
-        alert("HTTP Error: " + response.status);
+        console.log("HTTP Error: " + response.status);
     }
 }
