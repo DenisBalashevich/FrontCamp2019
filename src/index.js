@@ -1,16 +1,5 @@
 import './index.css';
-import NewsSourceService from './news-source-service';
-import NewsSourcesService from './news-sources-service';
-
-async function initializeSources() {
-    const newsSourcesService = new NewsSourcesService();
-    newsSourcesService.setNewsSources();
-}
-
-export async function getNewsHandler(chanelCode) {
-    const newsSourceService = new NewsSourceService();
-    await newsSourceService.setNews(chanelCode);
-}
+import NewsController from './news-controller';
 
 function addHTMLElements(){
     let mainDiv  = document.createElement('div');
@@ -24,5 +13,6 @@ function addHTMLElements(){
 
 window.onload = function () {
     addHTMLElements();
-    initializeSources();
+    const newsController = new NewsController();
+    newsController.initializeSources();
 };

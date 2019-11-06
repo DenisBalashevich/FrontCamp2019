@@ -1,6 +1,6 @@
 import RequestApiService from './request-api-service';
 import NewsSourceService from './news-source-service';
-import * as connector from './index';
+import NewsController from './news-controller';
 
 export default class NewsSourcesService {
     constructor(){
@@ -25,6 +25,7 @@ export default class NewsSourcesService {
 
     setSelectElement() {
         let selectElement = document.createElement('select');
+        const connector = new NewsController();
         selectElement.addEventListener("change", () => connector.getNewsHandler(selectElement));
         return selectElement;
     }

@@ -1,10 +1,12 @@
-export async function get(url) {
-    let response = await fetch(url);
+export let requestHelper = {
+    async get(url) {
+        let response = await fetch(url);
 
-    if (response.ok) {
-        let json = await response.json();
-        return json;
-    } else {
-        console.log("HTTP Error: " + response.status);
+        if (response.ok) {
+            let json = await response.json();
+            return json;
+        } else {
+            console.log("HTTP Error: " + response.status);
+        }
     }
 }

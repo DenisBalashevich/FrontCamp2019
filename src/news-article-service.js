@@ -1,21 +1,21 @@
 import * as htmlHelper from './html-Helper';
+import ElementBuilder from './element-builder';
 
 export default class NewsArticleService {
     setArticle(article) {
-        let mainDiv = document.createElement('div');
-        mainDiv.setAttribute('class', 'article');
-        mainDiv.append(htmlHelper.imageElement(article.urlToImage));
-    
-        let info = document.createElement('div');
-        info.setAttribute('class', 'info-block');
-        info.append(htmlHelper.divElement(article.title, [{
+        let info = new ElementBuilder('div')
+        .addAttribute('class', 'info-block')
+        .appendElement(htmlHelper.divElement(article.title, [{
             key: "class",
             value: "title"
-        }]));
-    
-        info.append(htmlHelper.divElement(article.description));
-    
-        mainDiv.append(info);
-        return mainDiv;
+        }]))
+        .appendElement(htmlHelper.divElement(article.description));
+
+        let mainDiv = new ElementBuilder('div')
+        .addAttribute('class', 'article')
+        .appendElement(htmlHelper.imageElement(article.urlToImage))
+        .appendElement(info.element);
+
+        return mainDiv.element;
     }
 } 
